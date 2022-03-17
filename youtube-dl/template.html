@@ -1,0 +1,47 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/yegor256/tacit@gh-pages/tacit-css.min.css"/>
+    <style>
+      * {
+        word-wrap: break-word;
+      }
+      body {
+        background-image: url(img/p.png);
+        color: #000;
+        font-weight: bold;
+      }
+      button[type="submit"] {
+        background: #78e153;
+        color: #f7fdbb;
+      }
+      button[type="submit"]:hover {
+        background: #bef72a;
+        color: #0e0e0e;
+      }
+      a:hover {
+        text-decoration: none;
+      }
+
+      fieldset div {
+        float: right;
+        margin-right: 25%;
+        width: 200px;
+      }
+
+    </style>
+    <script src="/ytdl/utils.js"></script>
+    <title>{title}</title>
+  </head>
+  <body>
+    <section>
+      <h3>{heading}</h3>
+      <p>
+          {content}
+      </p>
+    </section>
+  </body>
+</html>

@@ -1,0 +1,21 @@
+<form method="get" action="/ytdl/dl">
+          <fieldset>
+            <legend>YouTube-Link zu einem Video oder einer Playlist eingeben <code>&lt;youtube-dl.exe&gt; download</code></legend>
+            <label for="link">Download-Link:</label>
+            <input name="link" type="text" id="link" size="75" placeholder="https://www.youtube.com/watch?v=H9154xIoYTA" value="https://www.youtube.com/watch?v=H9154xIoYTA">
+            <div>
+              <h4>Ergebnis:</h4>
+              <p id="result"><small>Warten auf Interaktion</small></p>
+            </div>
+            <label for="format">Format:</label>
+            <select name="format" id="format">
+              <option value="both">Video + Audio</option>
+              <option value="audio">Audio</option>
+              <option value="video">Video</option>
+            </select>
+            <label for="dir">Downloadverzeichnis:</label><button type="submit" name="dir" onClick="getDir(event)">Ordner ausw&auml;hlen</button>
+            <p><small>Aktuell:</small><code id="dir">{lastpath}</code></p>
+            <button type="submit" onClick="initDownload(event)">Download starten</button>
+          </fieldset>
+        </form>
+        <ul><li><a href='/'>Zur&uuml;ck zur Startseite</a></li></ul>

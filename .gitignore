@@ -1,0 +1,8 @@
+*.json
+*.js
+*.txt
+py_http.server_localhost_8000.cmd
+requesthandler.info.md
+!utils.js
+!gen_xscreds.js
+__pycache__
