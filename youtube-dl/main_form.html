@@ -4,8 +4,9 @@
             <label for="link">Download-Link:</label>
             <input name="link" type="text" id="link" size="75" placeholder="https://www.youtube.com/watch?v=H9154xIoYTA" value="https://www.youtube.com/watch?v=H9154xIoYTA">
             <div>
-              <h4>Ergebnis:</h4>
-              <p id="result"><small>Warten auf Interaktion</small></p>
+              <h4>Status:</h4>
+              <p id="cat">...</p>
+              <p id="result"><small>Bereit</small></p>
             </div>
             <label for="format">Format:</label>
             <select name="format" id="format">
@@ -15,7 +16,7 @@
             </select>
             <label for="dir">Downloadverzeichnis:</label><button type="submit" name="dir" onClick="getDir(event)">Ordner ausw&auml;hlen</button>
             <p><small>Aktuell:</small><code id="dir">{lastpath}</code></p>
-            <button type="submit" onClick="initDownload(event)">Download starten</button>
+            <button type="submit" onClick="initDownload(event)" id="downloadButton">Download starten</button>
           </fieldset>
         </form>
         <ul><li><a href='/'>Zur&uuml;ck zur Startseite</a></li></ul>

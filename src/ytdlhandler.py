@@ -77,8 +77,9 @@ class ytdlHandler:
                 self.loadLastPath()
                 self.last_path = self.last_path[:-1]
                 self.last_path += "/%(title)s.%(ext)s"
-                #cmd = [self.bin_path, "--rm-cache-dir"]
-                #subprocess.run(cmd, capture_output=True)
+                #https://stackoverflow.com/questions/32104702/youtube-dl-library-and-error-403-forbidden-when-using-generated-direct-link-by
+                cmd = [self.bin_path, "--rm-cache-dir"]
+                subprocess.run(cmd, capture_output=True)
                 match self.dl_format:
                     case "both":
                         cmd = [self.bin_path, "--cookies", self.cookie_path, "-f", "bestvideo[ext!=webm]+bestaudio[ext!=webm]/best[ext!=webm]", "--ffmpeg-location", self.ffmpeg_path, "-o", self.last_path, self.link]
@@ -91,7 +92,7 @@ class ytdlHandler:
                         requestHandler.send_response(400, "Bad Request")
                         requestHandler.end_headers()
                 
-                threading.Thread(target=wsProgressHandler('localhost', 8765, cmd).serve_forever).start()
+                threading.Thread(target=wsProgressHandler('127.0.0.1', 8765, cmd).serve_forever).start()
                 
                 requestHandler.send_response(301)
                 requestHandler.send_header("Location", "/ytdl")
@@ -179,17 +180,19 @@ class wsProgressHandler:
 
 
     async def handle(self, websocket):
-        with subprocess.Popen(self.cmd, stdout=subprocess.PIPE) as proc:
+        # https://stackoverflow.com/a/33177749 https://stackoverflow.com/questions/2804543/read-subprocess-stdout-line-by-line
+        # https://docs.python.org/3/library/subprocess.html#popen-constructor
+        with subprocess.Popen(self.cmd, stdout=subprocess.PIPE, bufsize=1, universal_newlines=True) as proc:
             while proc.returncode is None:
                 try:
                     line = proc.stdout.readline()
+                    #https://stackoverflow.com/questions/30982217/python-popen-wait-vs-communicate-vs-calledprocesserror
                     #print(line)
-                    # todo regex split str(line) by \r to stream download progress
                     proc.stdout.flush()
                     if not line:
                         break
                     await websocket.send(line)
-                    await asyncio.sleep(0.5)
+                    await asyncio.sleep(0.3)
                 except Exception as e:
                     print("Error", e)
-        print('{}:{} - - [{}] "DEBUG sock handled {}."'.format(self.host, self.port, self.log_date_time_string(), self.cmd[len(self.cmd) - 1]))
+        print('{} - - [{}] "SOCK Object/{} Port/{}" -'.format(self.host, self.log_date_time_string(), self.cmd[len(self.cmd) - 1], self.port))
