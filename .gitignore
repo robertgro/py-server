@@ -6,3 +6,4 @@ requesthandler.info.md
 !utils.js
 !gen_xscreds.js
 __pycache__
+robocopy-remote.cmd

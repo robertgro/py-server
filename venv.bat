@@ -1,5 +1,5 @@
 @echo off
-if not exist env\ (
+if not exist env (
     python -m venv env
 )
 start /wait /b .\env\Scripts\activate.bat
