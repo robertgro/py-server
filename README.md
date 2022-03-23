@@ -17,4 +17,8 @@ download youtube-dl.exe, ffmpeg.exe and generate youtube.com cookies via Get coo
 
 download sysinternals psexec.exe and place it in "C:\sysinternals\" or an arbitrary dir and correct the Popen arg 0 in src/ytdlhandler.py with the appropriate path.
 
+# todo
+
+maybe replace youtube-dl with youtube dlp due to download throttling issue 
+
 this project is a work in progress. additional services and features will be added over time.
