@@ -8,4 +8,5 @@ requesthandler.info.md
 __pycache__
 robocopy-remote.cmd
 env/
+!requirements.txt
 #https://stackoverflow.com/questions/24410208/gitignore-does-not-ignore-folder
