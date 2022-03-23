@@ -7,3 +7,4 @@ requesthandler.info.md
 !gen_xscreds.js
 __pycache__
 robocopy-remote.cmd
+env/
