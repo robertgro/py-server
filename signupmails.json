@@ -1,0 +1,20 @@
+{
+    "mails":  [
+                  {
+                      "id":  "*",
+                      "used":  true
+                  },
+                  {
+                      "id":  "**",
+                      "used":  true
+                  },
+                  {
+                      "id":  "***",
+                      "used":  false
+                  },
+                  {
+                      "id":  "****",
+                      "used":  false
+                  }
+              ]
+}

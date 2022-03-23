@@ -10,3 +10,7 @@ robocopy-remote.cmd
 env/
 !requirements.txt
 #https://stackoverflow.com/questions/24410208/gitignore-does-not-ignore-folder
+!access_token.json
+!refresh_token.json
+!signupmails.json
+!web_client_id.json
