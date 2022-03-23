@@ -11,8 +11,10 @@ download and run install_py-server.cmd. it will create a new project directory (
 
 to test the google oauth and signupmail service/route (if you really want to do this) you'll need to generate and download your own json files. replace the href in index.html with the google auth url to get it working. 
 
-# requirements for youtube-dl
+# prerequisite for youtube-dl
 
 download youtube-dl.exe, ffmpeg.exe and generate youtube.com cookies via Get cookies chrome extension. place these files in an arbitrary location and correct the paths in src/ytdlhandler.py.
+
+download sysinternals psexec.exe and place it in "C:\sysinternals\" or an arbitrary dir and correct the Popen arg 0 in src/ytdlhandler.py with the appropriate path.
 
 this project is a work in progress. additional services and features will be added over time.
