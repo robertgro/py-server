@@ -13,12 +13,12 @@ to test the google oauth and signupmail service/route (if you really want to do 
 
 # prerequisite for youtube-dl
 
-download youtube-dl.exe, ffmpeg.exe and generate youtube.com cookies via Get cookies chrome extension. place these files in an arbitrary location and correct the paths in src/ytdlhandler.py.
+download youtube-dl.exe (yt-dlp.exe https://github.com/yt-dlp/yt-dlp), ffmpeg.exe and generate youtube.com cookies via Get cookies chrome extension. place these files in an arbitrary location and correct the paths in src/ytdlhandler.py.
 
 download sysinternals psexec.exe and place it in "C:\sysinternals\" or an arbitrary dir and correct the Popen arg 0 in src/ytdlhandler.py with the appropriate path.
 
-# todo
+# youtube-dlp
 
-maybe replace youtube-dl with youtube dlp due to download throttling issue 
+to switch between youtube-dl and youtube-dlp simply replace the bin path and cmd in ytdlhandler.py (been using youtube-dlp due to youtube-dl didn't implement google's crypto algo yet to avoid download throttling waiting for fix release https://github.com/ytdl-org/youtube-dl/issues/30715)
 
 this project is a work in progress. additional services and features will be added over time.

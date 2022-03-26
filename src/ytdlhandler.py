@@ -13,7 +13,8 @@ import os
 class ytdlHandler:
     def __init__(self, *args, **kwargs):
         self.loadLastPath()
-        self.bin_path = r"C:\bin\youtube-dl.exe"
+        #self.bin_path = r"C:\bin\youtube-dl.exe"
+        self.bin_path = r"C:\bin\yt-dlp.exe"
         self.cookie_path = r".\youtube-dl\youtube.com_cookies.txt"
         self.ffmpeg_path = r"C:\bin\ffmpeg.exe"
 
@@ -76,7 +77,7 @@ class ytdlHandler:
                 self.dl_format = query_params["format"][0]
                 self.loadLastPath()
                 self.last_path = self.last_path[:-1]
-                self.last_path += "/%(title)s.%(ext)s"
+                self.last_path += "\%(title)s.%(ext)s"
                 #https://stackoverflow.com/questions/32104702/youtube-dl-library-and-error-403-forbidden-when-using-generated-direct-link-by
                 cmd = [self.bin_path, "--rm-cache-dir"]
                 subprocess.run(cmd, capture_output=True)

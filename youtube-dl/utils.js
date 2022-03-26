@@ -9,7 +9,9 @@ class myWebSocket {
             //console.log(server, "initialized");
             return server;
         } catch (error) {
-            //console.log("ooops ", error);
+            console.log("ooops ", error);
+            // https://stackoverflow.com/questions/2381572/how-can-i-trigger-a-javascript-event-click
+            document.getElementById("downloadButton").click();
             return error;
         }
     }
@@ -126,8 +128,6 @@ function initDownload(event) {
     fetch(url).catch((error) => console.log('Error:', error));
     setTimeout(()=>{},300);
     myWebSocket.getWebSocket().catch((error) => {
-        // https://stackoverflow.com/questions/2381572/how-can-i-trigger-a-javascript-event-click
-        document.getElementById("downloadButton").click();
         console.error(error);
     });
 }
